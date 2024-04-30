@@ -1,0 +1,14 @@
+1. Tener una versión de python igual o superior a la 3 junto con pip  v24
+2. ejecutar
+    pip install "fastapi[all]
+3. Correr la api
+     uvicorn main:app --reload
+
+4. Ejecutar (Linter)
+    pip install flake8
+
+5. Ejecutar
+    pip install pre-commit
+
+6. Ejecutar 
+    pre-commit install
