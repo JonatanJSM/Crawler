@@ -1,6 +1,7 @@
 1. Tener una versión de python igual o superior a la 3 junto con pip  v24
 2. ejecutar
     pip install "fastapi[all]
+    pip install beautifulsoup4
 3. Correr la api
      uvicorn main:app --reload
 
