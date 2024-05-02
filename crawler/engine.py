@@ -5,7 +5,7 @@ from crawler.spider import Spider
 
 
 class Engine:
-    def __init__(self, ulrs, max_depth=2):
+    def __init__(self, ulrs, max_depth=0):
         self.scheduler = Scheduler()
         self.downloader = Downloader()
         self.spider = Spider(max_depth, self.scheduler)

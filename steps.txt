@@ -13,3 +13,9 @@
 
 6. Ejecutar 
     pre-commit install
+
+7. Ejecutar
+    pip install nltk
+    pip install -U scikit-learn
+
+8. En nplModel descomentar las lineas y ejecutar, luego volverlas a comentar, ya que solo se deben ejecutar la primera vez
