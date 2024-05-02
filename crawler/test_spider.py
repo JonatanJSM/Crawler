@@ -16,6 +16,13 @@ class TestSpider(unittest.TestCase):
         spider.parse(response, 0, "wagslane.dev")
         mock_parse.assert_called_once()
 
+    def test_create_item(self):
+        mock_create_item = MagicMock()
+        spider = Spider(2, None)
+        spider.create_item = mock_create_item
+        spider.create_item(None, "http://wagslane.dev")
+        mock_create_item.assert_called_once()
+
 
 if __name__ == '__main__':
     unittest.main()

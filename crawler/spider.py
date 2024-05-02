@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from crawler.request import Request
+from crawler.itemPipeline import itemPipeline
+from crawler.item import Item
 
 
 class Spider:
@@ -8,6 +10,7 @@ class Spider:
         self.max_depth = max_depth
         self.scheduler = scheduler
         self.visited_urls = set()
+        self.item_pipeline = itemPipeline()
 
     def parse(self, response, depth, base_domain):
         content_type = response.headers.get('Content-Type', '')
@@ -31,12 +34,15 @@ class Spider:
             if depth < self.max_depth:
                 new_request = Request(absolute_url, depth + 1)
                 self.scheduler.enqueue_request(new_request)
-
-        title = soup.title.text.strip()
-        body = soup.get_text().strip()
-        data = {'title': title, 'body': body}
-        print(f"Guardando datos en Solr: {data}")
+        self.create_item(soup, response.url)
 
     def is_sameDomain(self, url, base_domainRoot):
         url_domain = urlparse(url).netloc
         return url_domain == base_domainRoot
+
+    def create_item(self, soupHtml, pageURL):
+        new_item = Item.create_item(soupHtml, pageURL)
+        if new_item is not None:
+            print(f"Guardando datos en Solr: {new_item}")
+        else:
+            print("No se pudo crear el item debido a elementos faltantes.")
