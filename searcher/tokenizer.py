@@ -1,6 +1,18 @@
 from unidecode import unidecode
 from nltk.tokenize import RegexpTokenizer
 import langid
+import json
+
+
+LANGUAGES = []
+
+
+def load_accepted_languages(path):
+    f = open(path)
+    data = json.load(f)
+    global LANGUAGES
+    LANGUAGES = data["acceptedLanguages"]
+    f.close()
 
 
 def normalize_input(userInput):
@@ -12,14 +24,15 @@ def normalize_input(userInput):
 def get_input_language(word):
     lang = langid.classify(word)
     language = ""
-    if lang[0] == "en":
-        language = "english"
-    if lang[0] == "es" or lang[0] == "it":
-        language = "spanish"
+    for possibleLanguage in LANGUAGES:
+        if lang[0] == possibleLanguage.get("abbreviation"):
+            language = possibleLanguage.get("language")
+            break
     return language
 
 
-def tokenize_input(userInput):
+def tokenize_input(userInput, path):
+    load_accepted_languages(path)
     cleanInput = normalize_input(userInput)
     language = get_input_language(cleanInput)
     tokenizer = RegexpTokenizer(r'\w+')

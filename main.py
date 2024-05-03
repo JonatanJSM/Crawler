@@ -8,6 +8,9 @@ import searcher.expander as expander
 app = FastAPI()
 
 
+LANGUAGES_PATH = "json/languages.json"
+
+
 @app.post("/pages")
 def create_page(page: Page):
     urls = ["https://www.wagslane.dev/"]
@@ -18,7 +21,7 @@ def create_page(page: Page):
 
 @app.get("/tokens")
 def create_tokens(input):
-    return tokenizer.tokenize_input(input)
+    return tokenizer.tokenize_input(input, LANGUAGES_PATH)
 
 
 @app.get("/synonyms")
