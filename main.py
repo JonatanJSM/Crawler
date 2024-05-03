@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from models.page import Page
 from crawler.engine import Engine
+import searcher.tokenizer as tokenizer
+import searcher.expander as expander
+
 
 app = FastAPI()
 
@@ -11,3 +14,13 @@ def create_page(page: Page):
     engine = Engine(urls)
     engine.start()
     return {"page": page}
+
+
+@app.get("/tokens")
+def create_tokens(input):
+    return tokenizer.tokenize_input(input)
+
+
+@app.get("/synonyms")
+def create_synonymsArray(word, language):
+    return expander.get_similar_matrix(word, language)
