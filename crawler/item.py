@@ -14,7 +14,6 @@ class Item:
     @staticmethod
     def validate_meta_elements(metaTitle, metaType, metaDescription):
         if metaTitle is None or metaType is None or metaDescription is None:
-            print("Alguno de los elementos requeridos está ausente.")
             return False
         else:
             return True
@@ -41,7 +40,6 @@ class Item:
         path = os.path.join(current_dir, 'languageProcessing')
         category = text
         categoryNew = use_classifier(category, path)
-        print(f"La categoría es: {category}")
         return categoryNew
 
     @classmethod
@@ -50,7 +48,6 @@ class Item:
         metaTitle = soup_html.find("meta", property="og:title")
         metaType = soup_html.find("meta", property="og:type")
         metaDescription = soup_html.find("meta", property="og:description")
-        category = "prueba"
 
         if not cls.validate_meta_elements(metaTitle, metaType, metaDescription):
             return None

@@ -6,16 +6,16 @@ from crawler.item import Item
 class TestItemPipeline(unittest.TestCase):
 
     itemToTest = Item(
-        "https://www.wagslane.dev",
-        "Wagslane",
-        "Wagslane Blog",
-        "Wagslane Blog",
-        "2021-07-01",
-        "Wagslane Blog")
+        "Este es el título de la página",
+        "meta titulo",
+        "html",
+        "Este es la descripción de la página",
+        "https://wagslane.com/",
+        "Blog")
 
     def test_save_item(self):
         item_pipeline = itemPipeline()
-        assert item_pipeline.save_item(self.itemToTest) == self.itemToTest
+        self.assertEqual(item_pipeline.save_item(self.itemToTest, core="v2"), 200)
 
 
 if __name__ == '__main__':

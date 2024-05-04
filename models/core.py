@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Page(BaseModel):
+class Core(BaseModel):
     id: int
-    url: str
+    corename: str
     estado: bool

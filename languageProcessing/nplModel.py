@@ -11,6 +11,7 @@ import re
 # nltk.download('stopwords')
 # nltk.download('punkt')
 # nltk.download('wordnet')
+# nltk.download('omw-1.4')
 
 
 def preprocess(text):
@@ -125,7 +126,6 @@ def use_classifier(text, pathFiletoLoad):
     X_new = vectorizer.transform([preprocessed_text])
     predicted_category_encode = classifier.predict(X_new)
     predicted_category = label_encoder.inverse_transform(predicted_category_encode)
-    print("Predicted category:", predicted_category[0])
     return predicted_category[0]
 
 
