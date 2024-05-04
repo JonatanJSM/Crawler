@@ -2,6 +2,9 @@
 2. ejecutar
     pip install fastapi[all]
     pip install beautifulsoup4
+    pip install Unidecode
+    pip install langid
+
 3. Correr la api
      uvicorn main:app --reload
 

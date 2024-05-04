@@ -5,3 +5,5 @@ beautifulsoup4
 fastapi[all]
 nltk
 scikit-learn
+unidecode
+langid
