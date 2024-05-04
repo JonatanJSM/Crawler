@@ -1,3 +1,7 @@
 pytest
 pre-commit
 flake8
+beautifulsoup4
+fastapi[all]
+nltk
+scikit-learn

@@ -3,17 +3,17 @@ import os
 
 
 class Item:
-    def __init__(self, title, meta_title, meta_type, meta_description, page_url, category):
+    def __init__(self, title, metaTitle, metaType, metaDescription, url, category):
         self.title = title
-        self.meta_title = meta_title
-        self.meta_type = meta_type
-        self.meta_description = meta_description
-        self.page_url = page_url
+        self.metaTitle = metaTitle
+        self.metaType = metaType
+        self.metaDescription = metaDescription
+        self.url = url
         self.category = category
 
     @staticmethod
-    def validate_meta_elements(meta_title, meta_type, meta_description):
-        if meta_title is None or meta_type is None or meta_description is None:
+    def validate_meta_elements(metaTitle, metaType, metaDescription):
+        if metaTitle is None or metaType is None or metaDescription is None:
             print("Alguno de los elementos requeridos está ausente.")
             return False
         else:
@@ -28,7 +28,7 @@ class Item:
         return ' '.join(soup.stripped_strings)
 
     @staticmethod
-    def systematic_sampling(text, sample_size):
+    def systematic_sampling(text):
         sentences = text.split(',')
         step_size = len(sentences)
         sampled_sentences = [sentences[i] for i in range(0, len(sentences), step_size)]
@@ -45,20 +45,30 @@ class Item:
         return categoryNew
 
     @classmethod
-    def create_item(cls, soup_html, page_url):
+    def create_item(cls, soup_html, url):
         title = soup_html.title.text.strip()
-        meta_title = soup_html.find("meta", property="og:title")
-        meta_type = soup_html.find("meta", property="og:type")
-        meta_description = soup_html.find("meta", property="og:description")
+        metaTitle = soup_html.find("meta", property="og:title")
+        metaType = soup_html.find("meta", property="og:type")
+        metaDescription = soup_html.find("meta", property="og:description")
         category = "prueba"
 
-        if not cls.validate_meta_elements(meta_title, meta_type, meta_description):
+        if not cls.validate_meta_elements(metaTitle, metaType, metaDescription):
             return None
 
         text1 = cls.clean_html_text(soup_html)
-        text2 = cls.systematic_sampling(text1, 5)
+        text2 = cls.systematic_sampling(text1)
         category = cls.create_category(text2)
-        return cls(title, meta_title["content"], meta_type["content"], meta_description["content"], page_url, category)
+        return cls(title, metaTitle["content"], metaType["content"], metaDescription["content"], url, category)
 
     def __str__(self):
-        return f"Item: {self.title}, {self.meta_title}, {self.meta_type}, {self.meta_description}, {self.page_url}, {self.category}"
+        return f"Item: {self.title}, {self.metaTitle}, {self.metaType}, {self.metaDescription}, {self.url}, {self.category}"
+
+    def __json__(self):
+        return {
+            "title": self.title,
+            "metaTitle": self.metaTitle,
+            "metaType": self.metaType,
+            "metaDescription": self.metaDescription,
+            "url": self.url,
+            "category": self.category
+        }

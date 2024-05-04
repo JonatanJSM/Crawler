@@ -34,7 +34,8 @@ class Spider:
             if depth < self.max_depth:
                 new_request = Request(absolute_url, depth + 1)
                 self.scheduler.enqueue_request(new_request)
-        self.create_item(soup, response.url)
+        new_Item_created = self.create_item(soup, response.url)
+        self.item_pipeline.save_item(new_Item_created)
 
     def is_sameDomain(self, url, base_domainRoot):
         url_domain = urlparse(url).netloc
@@ -43,6 +44,6 @@ class Spider:
     def create_item(self, soupHtml, pageURL):
         new_item = Item.create_item(soupHtml, pageURL)
         if new_item is not None:
-            print(f"Guardando datos en Solr: {new_item}")
+            return new_item
         else:
             print("No se pudo crear el item debido a elementos faltantes.")
