@@ -1,6 +1,6 @@
 from unidecode import unidecode
 from nltk.tokenize import RegexpTokenizer
-import langid
+from googletrans import Translator
 import json
 
 
@@ -22,10 +22,11 @@ def normalize_input(userInput):
 
 
 def get_input_language(word):
-    lang = langid.classify(word)
-    language = ""
+    translator = Translator()
+    lang = translator.detect(word)
+    language = "notFound"
     for possibleLanguage in LANGUAGES:
-        if lang[0] == possibleLanguage.get("abbreviation"):
+        if str(lang.lang) == possibleLanguage.get("abbreviation"):
             language = possibleLanguage.get("language")
             break
     return language

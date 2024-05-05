@@ -13,3 +13,9 @@
 
 6. Ejecutar 
     pre-commit install
+
+7. Ejecutar
+    pip3 install Unicode
+
+7. Ejecutar
+    pip install googletrans==4.0.0-rc1
