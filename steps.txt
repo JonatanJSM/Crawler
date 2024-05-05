@@ -18,13 +18,15 @@
     pre-commit install
 
 7. Ejecutar
+    pip install googletrans==4.0.0-rc1
+
+8. Ejecutar
     pip install nltk
     pip install -U scikit-learn
 
-8. En nplModel.py descomentar las primeras lineas y ejecutar, luego volverlas a comentar, ya que solo se deben ejecutar la primera vez
+9. En nplModel.py descomentar las primeras lineas y ejecutar, luego volverlas a comentar, ya que solo se deben ejecutar la primera vez
 
-
-9. Copiar la configuración de solr en donde tenga sus archivos de instalación de solr, los que descomprimieron
+10. Copiar la configuración de solr en donde tenga sus archivos de instalación de solr, los que descomprimieron
     - Entran a la carpeta de su solr
     - Se van a server/solr/configset
     - Ahí pegan la carpeta de configuración "solr-config"
