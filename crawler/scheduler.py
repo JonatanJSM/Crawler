@@ -11,7 +11,6 @@ class Scheduler:
         domain = urlparse(request.url).netloc
 
         robot_url = f"http://{domain}/robots.txt"
-
         try:
             self.robot_parser.set_url(robot_url)
             self.robot_parser.read()
@@ -22,7 +21,6 @@ class Scheduler:
         if not self.robot_parser.can_fetch("*", request.url):
             print(f"Solicitud denegada por robots.txt: {request.url}")
             return
-
         self.queue.append(request)
 
     def next_request(self):

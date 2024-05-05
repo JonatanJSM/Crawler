@@ -1,7 +1,10 @@
 1. Tener una versión de python igual o superior a la 3 junto con pip  v24
 2. ejecutar
-    pip install "fastapi[all]
+    pip install fastapi[all]
     pip install beautifulsoup4
+    pip install Unidecode
+    pip install langid
+
 3. Correr la api
      uvicorn main:app --reload
 
@@ -15,7 +18,15 @@
     pre-commit install
 
 7. Ejecutar
-    pip3 install Unicode
-
-7. Ejecutar
     pip install googletrans==4.0.0-rc1
+
+8. Ejecutar
+    pip install nltk
+    pip install -U scikit-learn
+
+9. En nplModel.py descomentar las primeras lineas y ejecutar, luego volverlas a comentar, ya que solo se deben ejecutar la primera vez
+
+10. Copiar la configuración de solr en donde tenga sus archivos de instalación de solr, los que descomprimieron
+    - Entran a la carpeta de su solr
+    - Se van a server/solr/configset
+    - Ahí pegan la carpeta de configuración "solr-config"
