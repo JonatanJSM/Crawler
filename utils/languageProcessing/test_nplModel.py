@@ -1,5 +1,5 @@
 import unittest
-from languageProcessing.nplModel import (
+from utils.languageProcessing.nplModel import (
     preprocess, get_lis_stopwords, get_words,
     get_words_without_stopwords, get_words_lemanized,
     get_words_stemmed

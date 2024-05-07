@@ -1,6 +1,6 @@
 import unittest
-from solr.solrManager import SolrManager
-from crawler.item import Item
+from infra.solr.solrManager import SolrManager
+from core.entity.item import Item
 
 
 class TestSolrUtils(unittest.TestCase):

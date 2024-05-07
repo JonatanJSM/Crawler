@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from solr.config import SOLR_BASE_URL
+from infra.solr.config import SOLR_BASE_URL
 import requests
 import json
 

@@ -1,6 +1,6 @@
 import unittest
-from crawler.scheduler import Scheduler
-from crawler.request import Request
+from core.repository.scheduler import Scheduler
+from core.entity.request import Request
 from unittest.mock import MagicMock
 
 

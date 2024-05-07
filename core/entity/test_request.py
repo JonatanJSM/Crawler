@@ -1,5 +1,5 @@
 import unittest
-from crawler.request import Request
+from core.entity.request import Request
 
 
 class TestRequest(unittest.TestCase):
