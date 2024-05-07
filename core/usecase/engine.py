@@ -1,7 +1,7 @@
-from crawler.request import Request
-from crawler.scheduler import Scheduler
-from crawler.downloader import Downloader
-from crawler.spider import Spider
+from core.entity.request import Request
+from core.repository.scheduler import Scheduler
+from core.usecase.downloader import Downloader
+from core.usecase.spider import Spider
 import traceback
 
 

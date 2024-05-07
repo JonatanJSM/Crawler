@@ -1,4 +1,4 @@
-from solr.solrManager import SolrManager
+from infra.solr.solrManager import SolrManager
 
 
 class itemPipeline:

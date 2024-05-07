@@ -1,5 +1,5 @@
 import unittest
-from crawler.engine import Engine
+from core.usecase.engine import Engine
 from unittest.mock import MagicMock
 
 

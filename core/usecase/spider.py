@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
-from crawler.request import Request
-from crawler.itemPipeline import itemPipeline
-from crawler.item import Item
+from core.entity.request import Request
+from core.repository.itemPipeline import itemPipeline
+from core.entity.item import Item
 
 
 class Spider:

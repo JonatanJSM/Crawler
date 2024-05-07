@@ -1,5 +1,5 @@
 import unittest
-from crawler.item import Item
+from core.entity.item import Item
 from bs4 import BeautifulSoup
 
 

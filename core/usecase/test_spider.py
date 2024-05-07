@@ -1,7 +1,7 @@
 import unittest
-from crawler.spider import Spider
-from crawler.request import Request
-from crawler.downloader import Downloader
+from core.usecase.spider import Spider
+from core.entity.request import Request
+from core.usecase.downloader import Downloader
 from unittest.mock import MagicMock
 
 

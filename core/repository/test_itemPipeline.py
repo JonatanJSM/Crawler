@@ -1,6 +1,6 @@
 import unittest
-from crawler.itemPipeline import itemPipeline
-from crawler.item import Item
+from core.repository.itemPipeline import itemPipeline
+from core.entity.item import Item
 
 
 class TestItemPipeline(unittest.TestCase):
