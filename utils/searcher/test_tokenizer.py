@@ -1,5 +1,5 @@
 import unittest
-import tokenizer
+import utils.searcher.tokenizer as tokenizer
 import os
 
 

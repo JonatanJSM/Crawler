@@ -1,5 +1,5 @@
 import unittest
-import expander
+import utils.searcher.expander as expander
 
 
 class TestExpanderWithNoun(unittest.TestCase):
