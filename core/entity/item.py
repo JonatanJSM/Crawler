@@ -1,4 +1,4 @@
-from utils.languageProcessing.nplModel import use_classifier
+from core.utils.languageProcessing.nplModel import use_classifier
 import os
 
 
@@ -37,7 +37,7 @@ class Item:
     @staticmethod
     def create_category(text):
         current_dir = os.getcwd()
-        path = os.path.join(current_dir, 'utils', 'languageProcessing')
+        path = os.path.join(current_dir, 'core', 'utils', 'languageProcessing')
         category = text
         categoryNew = use_classifier(category, path)
         return categoryNew

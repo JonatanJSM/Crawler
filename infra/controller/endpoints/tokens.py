@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-import utils.searcher.tokenizer as tokenizer
+import core.utils.searcher.tokenizer as tokenizer
 
 
 router = APIRouter()

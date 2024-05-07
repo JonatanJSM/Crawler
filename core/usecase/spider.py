@@ -1,16 +1,16 @@
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from core.entity.request import Request
-from core.repository.itemPipeline import itemPipeline
+from core.usecase.itemPipeline import itemPipeline
 from core.entity.item import Item
 
 
 class Spider:
-    def __init__(self, max_depth, scheduler):
+    def __init__(self, max_depth, scheduler, solrClientManager):
         self.max_depth = max_depth
         self.scheduler = scheduler
         self.visited_urls = set()
-        self.item_pipeline = itemPipeline()
+        self.item_pipeline = itemPipeline(solrClientManager)
         self.response_code = 0
 
     def parse(self, response, depth, base_domain, core_name):

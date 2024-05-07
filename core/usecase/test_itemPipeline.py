@@ -1,5 +1,6 @@
 import unittest
-from core.repository.itemPipeline import itemPipeline
+from core.usecase.itemPipeline import itemPipeline
+from infra.solr.solrAdapter import SolrManagerAdapter
 from core.entity.item import Item
 
 
@@ -14,7 +15,8 @@ class TestItemPipeline(unittest.TestCase):
         "Blog")
 
     def test_save_item(self):
-        item_pipeline = itemPipeline()
+        solrManagerAdapter = SolrManagerAdapter()
+        item_pipeline = itemPipeline(solrManagerAdapter)
         self.assertEqual(item_pipeline.save_item(self.itemToTest, core="v2"), 200)
 
 

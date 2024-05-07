@@ -1,5 +1,5 @@
 import unittest
-from core.repository.scheduler import Scheduler
+from core.usecase.scheduler import Scheduler
 from core.entity.request import Request
 from unittest.mock import MagicMock
 
