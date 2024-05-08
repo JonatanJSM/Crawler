@@ -1,10 +1,9 @@
-from infra.solr.solrManager import SolrManager
 
 
 class itemPipeline:
 
-    def __init__(self):
-        self.solr_manager = SolrManager()
+    def __init__(self, solrClientManager):
+        self.solr_manager = solrClientManager
 
     def save_item(self, item, core="v2"):
         response = self.solr_manager.add_item_to_core(core, item.__json__())

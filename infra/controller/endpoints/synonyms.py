@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-import utils.searcher.expander as expander
+import core.utils.searcher.expander as expander
 
 
 router = APIRouter()
