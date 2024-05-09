@@ -1,6 +1,6 @@
 from core.entity.request import Request
-from core.usecase.scheduler import Scheduler
-from core.usecase.downloader import Downloader
+from core.entity.scheduler import Scheduler
+from core.entity.downloader import Downloader
 from core.usecase.spider import Spider
 import traceback
 
@@ -23,9 +23,9 @@ class Engine:
                     if not request:
                         break
                     response = self.downloader.download(request)
-                    print("Se está bajando la", request.url)
+                    print("Se está bajando la", request.get_url())
                     if response:
-                        self.spider.parse(response, request.depth, request.domain, self.core_name)
+                        self.spider.parse(response, request.get_depth(), request.get_domain(), self.core_name)
         except Exception as e:
             print("Error:", e)
             traceback.print_exc()

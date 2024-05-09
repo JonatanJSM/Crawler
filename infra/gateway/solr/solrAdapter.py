@@ -1,5 +1,5 @@
 from core.usecase.solrClient import SolrClient
-from infra.solr.solrManager import SolrManager
+from infra.gateway.solr.solrManager import SolrManager
 
 
 class SolrManagerAdapter(SolrClient):

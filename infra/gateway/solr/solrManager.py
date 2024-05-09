@@ -1,9 +1,9 @@
-from infra.solr.solrManagerMeta import SolrManagerMeta
-from infra.solr.solrCommands import (
+from infra.gateway.solr.solrManagerMeta import SolrManagerMeta
+from infra.gateway.solr.solrCommands import (
     CreateCoreCommand, CreateItemInCoreCommand,
     GetStatusCommand, ReloadCoreCommand
     )
-from infra.solr.config import SOLR_BASE_URL
+from infra.gateway.solr.config import SOLR_BASE_URL
 import requests
 
 

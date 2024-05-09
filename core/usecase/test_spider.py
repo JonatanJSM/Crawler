@@ -1,9 +1,9 @@
 import unittest
 from core.usecase.spider import Spider
 from core.entity.request import Request
-from core.usecase.downloader import Downloader
+from core.entity.downloader import Downloader
 from unittest.mock import MagicMock
-from infra.solr.solrAdapter import SolrManagerAdapter
+from infra.gateway.solr.solrAdapter import SolrManagerAdapter
 
 
 class TestSpider(unittest.TestCase):

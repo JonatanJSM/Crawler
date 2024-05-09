@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
-from infra.models.page import Page
+from infra.dtos.page import Page
 from core.usecase.engine import Engine
-from infra.solr.solrAdapter import SolrManagerAdapter
+from infra.gateway.solr.solrAdapter import SolrManagerAdapter
 
 router = APIRouter()
 
