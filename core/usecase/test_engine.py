@@ -17,7 +17,7 @@ class TestEngine(unittest.TestCase):
         urls = ["https://www.wagslane.dev/"]
         engine = Engine(urls)
         engine.start()
-        assert len(engine.scheduler.queue) == 0
+        assert len(engine.scheduler.get_queue()) == 0
 
 
 if __name__ == '__main__':

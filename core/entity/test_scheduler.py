@@ -1,5 +1,5 @@
 import unittest
-from core.usecase.scheduler import Scheduler
+from core.entity.scheduler import Scheduler
 from core.entity.request import Request
 from unittest.mock import MagicMock
 
@@ -9,13 +9,13 @@ class TestScheduler(unittest.TestCase):
         scheduler = Scheduler()
         urls = ["https://www.wagslane.dev/"]
         scheduler.enqueue_request(Request(urls[0]))
-        self.assertEqual(len(scheduler.queue), 1)
+        self.assertEqual(len(scheduler.get_queue()), 1)
 
     def test_next_request(self):
         scheduler = Scheduler()
         urls = ["https://www.wagslane.dev/"]
         scheduler.enqueue_request(Request(urls[0]))
-        self.assertEqual(scheduler.next_request().url, urls[0])
+        self.assertEqual(scheduler.next_request().get_url(), urls[0])
 
     def test_next_request_empty_queue(self):
         scheduler = Scheduler()

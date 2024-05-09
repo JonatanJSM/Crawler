@@ -1,6 +1,6 @@
 import unittest
 from core.usecase.itemPipeline import itemPipeline
-from infra.solr.solrAdapter import SolrManagerAdapter
+from infra.gateway.solr.solrAdapter import SolrManagerAdapter
 from core.entity.item import Item
 
 

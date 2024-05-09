@@ -4,12 +4,12 @@ import os
 
 class Item:
     def __init__(self, title, metaTitle, metaType, metaDescription, url, category):
-        self.title = title
-        self.metaTitle = metaTitle
-        self.metaType = metaType
-        self.metaDescription = metaDescription
-        self.url = url
-        self.category = category
+        self.__title = title
+        self.__metaTitle = metaTitle
+        self.__metaType = metaType
+        self.__metaDescription = metaDescription
+        self.__url = url
+        self.__category = category
 
     @staticmethod
     def validate_meta_elements(metaTitle, metaType, metaDescription):
@@ -35,7 +35,7 @@ class Item:
         return sampled_text
 
     @staticmethod
-    def create_category(text):
+    def __create_category(text):
         current_dir = os.getcwd()
         path = os.path.join(current_dir, 'core', 'utils', 'languageProcessing')
         category = text
@@ -54,18 +54,36 @@ class Item:
 
         text1 = cls.clean_html_text(soup_html)
         text2 = cls.systematic_sampling(text1)
-        category = cls.create_category(text2)
+        category = cls.__create_category(text2)
         return cls(title, metaTitle["content"], metaType["content"], metaDescription["content"], url, category)
 
     def __str__(self):
-        return f"Item: {self.title}, {self.metaTitle}, {self.metaType}, {self.metaDescription}, {self.url}, {self.category}"
+        return f"Item: {self.__title}, {self.__metaTitle}, {self.__metaType}, {self.__metaDescription}, {self.__url}, {self.__metaTitlecategory}"
 
     def __json__(self):
         return {
-            "title": self.title,
-            "metaTitle": self.metaTitle,
-            "metaType": self.metaType,
-            "metaDescription": self.metaDescription,
-            "url": self.url,
-            "category": self.category
+            "title": self.__title,
+            "metaTitle": self.__metaTitle,
+            "metaType": self.__metaType,
+            "metaDescription": self.__metaDescription,
+            "url": self.__url,
+            "category": self.__category
         }
+
+    def get_title(self):
+        return self.__title
+
+    def get_metaTitle(self):
+        return self.__metaTitle
+
+    def get_metaType(self):
+        return self.__metaType
+
+    def get_metaDescription(self):
+        return self.__metaDescription
+
+    def get_url(self):
+        return self.__url
+
+    def get_category(self):
+        return self.__category

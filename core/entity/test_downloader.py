@@ -1,6 +1,6 @@
 import unittest
 from core.entity.request import Request
-from core.usecase.downloader import Downloader
+from core.entity.downloader import Downloader
 
 
 class TestDownloader(unittest.TestCase):

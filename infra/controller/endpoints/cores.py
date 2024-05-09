@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
-from infra.models.core import Core
-from infra.solr.solrManager import SolrManager
+from infra.dtos.core import Core
+from infra.gateway.solr.solrManager import SolrManager
 
 router = APIRouter()
 solr_manager = SolrManager()

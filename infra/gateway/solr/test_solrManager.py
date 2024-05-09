@@ -1,5 +1,5 @@
 import unittest
-from infra.solr.solrManager import SolrManager
+from infra.gateway.solr.solrManager import SolrManager
 from core.entity.item import Item
 
 
