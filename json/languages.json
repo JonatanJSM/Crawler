@@ -1,0 +1,32 @@
+{
+    "acceptedLanguages": [
+        {
+            "abbreviation": "en",
+            "language": "english"
+        },
+        {
+            "abbreviation": "es",
+            "language": "spanish"
+        },
+        {
+            "abbreviation": "id",
+            "language": "indonesian"
+        },
+        {
+            "abbreviation": "fr",
+            "language": "french"
+        },
+        {
+            "abbreviation": "it",
+            "language": "italian"
+        },
+        {
+            "abbreviation": "de",
+            "language": "german"
+        },
+        {
+            "abbreviation": "fi",
+            "language": "finnish"
+        }
+    ]
+}

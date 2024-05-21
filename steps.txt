@@ -1,14 +1,44 @@
-1. Tener una versión de python igual o superior a la 3 junto con pip  v24
-2. ejecutar
-    pip install "fastapi[all]
-3. Correr la api
+1. Tener una versión de python igual o superior a la 3.12.1
+
+2. Ejecutar
+    pip install fastapi[all]
+    pip install beautifulsoup4
+    pip install Unidecode
+    pip install langid
+    pip install googletrans==4.0.0-rc1
+    pip install nltk
+    pip install -U scikit-learn
+
+3. Copiar la configuración de solr en donde tenga sus archivos de instalación de solr, los que descomprimieron
+    - Entran a la carpeta de su solr
+    - Se van a server/solr/configset
+    - Ahí pegan la carpeta de configuración "solr-config"
+
+4. Correr la api para poder levantar la API, recomendable correr cuando se hayan hecho tods estos pasos
      uvicorn main:app --reload
 
-4. Ejecutar (Linter)
+5. Ejecutar para poder ejecutar el Linter
     pip install flake8
 
-5. Ejecutar
+6. Ejecutar, esta es una librería para poder tener commit hooks
     pip install pre-commit
 
-6. Ejecutar 
+7. Ejecutar, este te prepara el hook, lo pone a funcionar
     pre-commit install
+
+8. En nplModel.py descomentar las primeras lineas y ejecutar, luego volverlas a comentar, ya que solo se deben ejecutar la primera vez
+
+
+Docker, ignorar
+    docker network create --subnet=172.19.0.0/16 mi-red-docker
+
+    docker build -t myimage .
+    docker run -d --name mycontainer --network mi-red-docker -p 8000:8000 myimage
+
+    *En caso del docker file, pero es mejor correr el compose de solr ya que se puede levantar un volumen y crear los cores*
+    *A los siguientes comandos todavía le falta configurar donde se guardan los cores*
+    *Si cuando corres el contenedor con dockerfile se te crea una carpeta /solrdata, debes comprobar que el consigset esté*
+    docker build -t solr-core .
+    docker run -d --name solrPrueba2 --network mi-red-docker -p 8983:8983 solr-core
+    docker exec solrPrueba2 solr status
+    docker exec solrPrueba2 solr create_core -c prueba6 -d /opt/solr/server/solr/configsets/solr-config

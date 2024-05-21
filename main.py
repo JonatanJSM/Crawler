@@ -1,8 +1,11 @@
 from fastapi import FastAPI
+from infra.controller.router import api_router
 
-app = FastAPI()
+
+def get_application() -> FastAPI:
+    app = FastAPI()
+    app.include_router(api_router)
+    return app
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app = get_application()
